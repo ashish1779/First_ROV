@@ -17,7 +17,7 @@ int set_point;  //Publisher for looping data
 
 float Front_sonar, Side_sonar;   //Publishing
 
-
+//Subscribe data from nodes
 void message1(const std_msgs::Int32 &msg1)
 {
   depth_setpoint=msg1.data;
@@ -77,10 +77,10 @@ void setup()
   nh.advertise(pub_setpoint);
     
 }
- 
+
 void loop()
 {
-  if(depth_setpoint>80 && kp>5 &&kd>5 &&ki>5)
+  if(depth_setpoint>80 && kp>5 &&kd>5 &&ki>5)   //Just to check getting value or not
   {
     digitalWrite(13,HIGH);
   }
@@ -111,3 +111,9 @@ void loop()
    nh.spinOnce();
 
 }
+
+void pid()
+{
+  ;//Kp,Kd,Ki
+}
+ 
